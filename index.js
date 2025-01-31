@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -27,7 +27,6 @@ const pool = new Pool({
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
