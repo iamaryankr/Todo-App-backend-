@@ -5,6 +5,12 @@ import dotenv from "dotenv";
 import pkg from 'pg';
 const { Pool } = pkg;
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 
 dotenv.config();
@@ -22,6 +28,7 @@ const pool = new Pool({
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 let items = [];
 
