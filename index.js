@@ -64,7 +64,7 @@ app.post("/edit", async (req, res) => {
 
   try {
     await pool.query("UPDATE items SET title = ($1) WHERE id = $2", [item, id]);
-    res.redirect("/");
+    res.redirect("/"); 
   } catch (err) {
     console.log(err);
   }

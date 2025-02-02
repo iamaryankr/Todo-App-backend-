@@ -10,7 +10,7 @@
       <div class="item">
         <!-- delete the task -->
         <form action="/delete" method="post">
-          <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">
+          <input type = "checkbox" onchange= "this.form.submit()" name = "deleteItemId" value = "<%= item.id %>" >
         </form>
         <!-- show the task -->
         <p id="title<%=item.id%>">
